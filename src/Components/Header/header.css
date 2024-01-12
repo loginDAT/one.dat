@@ -1,0 +1,15 @@
+header {
+    display: flex;
+    height: 35px;
+    margin: 36px;
+}
+.headerlogo {
+    height: 35px;
+    width: max-content;
+}
+/* Media */
+@media screen and (max-width:560px) {
+    header {
+        justify-content: center;
+    }
+}

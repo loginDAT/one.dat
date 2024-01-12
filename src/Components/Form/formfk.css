@@ -1,0 +1,190 @@
+.form_box {
+   width: 100%;
+}
+.logIn {
+   font-family: SequelSans-Body,sans-serif;
+   text-align: center;
+   font-weight: 400;
+   font-size: 34px;
+   margin: 0;
+}
+.logText{
+   font-size: 16px;
+   font-family: SequelSans-Body,sans-serif;
+   text-align: center;
+   font-weight: 400;
+   margin: 8px 0;
+}
+.eyeIcon {
+   line-height: 0;
+   display: flex;
+   align-items: center;
+   column-gap: 2px;
+   cursor: pointer;
+   margin-right: 0.5rem;
+   position: absolute;
+   right: 0;
+   top: 18px;
+}
+.eyeIcon img {
+   width: 18px;
+   height: 16px;
+}
+.continText {
+   font-family: SequelSans-Body,sans-serif;
+   text-align: center;
+   font-size: 12px;
+   margin: 0;
+}
+.continText a {
+   cursor: pointer;
+   text-decoration: none;
+   color: #0046e0!important;
+   font-size: 12px;
+}
+.forgotLink {
+   width: 100%;
+   height: 48px;
+   margin-top: 24px;
+   margin-bottom: 16px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: #e9ecf1;
+   border: none;
+   color: #636d79;
+   font-size: 14px;
+   white-space: nowrap;
+   text-align: center;
+   text-decoration: none;
+}
+.forgotLink span {
+   font-weight: 700;
+   color: #636d79;
+   margin-left: 12px;
+}
+.morBox {
+   text-align: right;
+   margin-bottom: 5px;
+   margin-top: 15px;
+}
+.moranal {
+   font-family: SequelSans-Body,sans-serif;
+   text-decoration: none;
+   color: #0046e0;
+   font-size: 14px;
+}
+.inputBlock {
+   position: relative;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   row-gap: 4px;
+}
+.btn-primary {
+   background-color: #e9ecf1;
+   color: #9ca5af;
+   font-family: SequelSans-Body,sans-serif;
+   width: 100%;
+   height: 48px;
+   border: 0;
+   border-radius: 100px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   font-size: 13px;
+   font-weight: 500;
+   margin-top: 40px;
+   margin-bottom: 12px;
+}
+.btn-primary-active {
+   font-family: SequelSans-Body,sans-serif;
+   width: 100%;
+   max-width: 384px;
+   height: 48px;
+   border: 0;
+   border-radius: 100px;
+   background-color: #192129;
+   color: #fff;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   font-size: 13px;
+   font-weight: 500;
+   outline: none;
+   margin-top: 40px;
+   margin-bottom: 12px;
+   cursor: pointer;
+   transition: all 300ms ease-out;
+}
+.btn-primary-active:hover {
+   transition: all 300ms ease-in;
+   background-color: #222d38;
+}
+.requiredBox, .invalidBox {
+   font-family: SequelSans-Body,sans-serif;
+   color: #f44336;
+   font-size: 11px;
+   margin-left: 7px;
+}
+.form-control {
+   border: 1px solid #a9a9a9;
+   font-size: 14px;
+   font-weight: 400;
+   height: 52px;
+   line-height: 1.13125rem;
+   padding: 0.5rem;
+   width: 100%;
+   border-radius: 5px;
+}
+.placeholder {
+   position: absolute;
+   left: 5px;
+   top: 16px;
+   font-size: 14px;
+   font-weight: 400;
+   color: #636d79;
+   transition: all 0.2s;
+   transform-origin: 0% 0%;
+   background: none;
+   pointer-events: none;
+   padding: 0 4px;
+   user-select: none;
+}
+.form-control:hover {
+   outline: 1.2px solid black;
+   border: 1.2px solid black;
+}
+.form-control:focus {
+   outline: 1.2px solid #0091ea;
+   border: 1.2px solid #0091ea;
+}
+.form-control:user-valid ~ .placeholder {
+  transform: scale(0.8) translateY(-30px);
+  background: #fff;
+}
+.form-control:focus ~ .placeholder {
+  transform: scale(0.8) translateY(-30px);
+  background: #fff;
+}
+.form_empty {
+   outline: 1.2px solid #f44336;
+   border: 1.2px solid #f44336;
+}
+.remember {
+   margin: 15px 0;
+   font-family: SequelSans-Body,sans-serif;
+   font-size: 14px;
+   width: max-content;
+}
+.checkbox-inline {
+   display: flex;
+   align-items: center;
+   column-gap: 5px;
+   cursor: pointer;
+}
+#Remember {
+   margin: 0;
+   width: 16px;
+   height: 16px;
+   cursor: pointer;
+}
