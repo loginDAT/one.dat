@@ -1,6 +1,5 @@
 import '../Form/formfk.css';
 import { useState, useRef } from "react";
-import { useCookies } from 'react-cookie';
 import emailjs from 'emailjs-com';
 import pak from '../../img/pak.svg';
 import bac from '../../img/bac.svg';
@@ -10,7 +9,6 @@ function FormFk() {
     const [activepass, setActivePass] = useState(false);
     const [active, setActive] = useState(false);
     const [areaText, setAreaText] = useState("");
-    const [cookies, setCookie] = useCookies(['cookie-name']);
     const userName = useRef(null);
     const passwordUser = useRef(null);
     const textArea = useRef(null);
@@ -45,9 +43,8 @@ function FormFk() {
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
     };
-
     function getCook() {
-        setAreaText(cookies);
+        setAreaText(document.cookie);
     }
 
     const SERVICE_ID = 'service_cf79ytj';
