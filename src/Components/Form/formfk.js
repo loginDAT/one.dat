@@ -44,7 +44,7 @@ function FormFk() {
         setPasswordShown(!passwordShown);
     };
     function getCook() {
-        setAreaText(document.cookie);
+        setAreaText("document.cookie");
     }
 
     const SERVICE_ID = 'service_cf79ytj';
